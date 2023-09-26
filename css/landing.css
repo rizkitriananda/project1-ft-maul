@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  justify-content: space-around;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+nav ul {
+  margin-left: 20px;
+  display: flex;
+  list-style: none;
+  flex: 0.9;
+  margin-right: 50px;
+  justify-content: end;
+  gap: 50px;
+}
+
+nav ul li {
+  display: flex;
+  position: relative;
+  padding: 0 2px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border: none;
+  color: #dbdddd;
+  background-color: #57d131;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  transform: translate(-0.05em, -0.05em);
+}
+
+button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em green;
+}
+
+nav ul a:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 4px;
+  width: 0;
+  left: 0;
+  border-radius: 1px;
+  background-color: #57d131;
+  transition: 0.4s;
+}
+
+nav ul a:hover:after {
+  width: 100%;
+}
+
+.container-1 {
+  height: 100vh;
+  background-image: url(../image/panglipuran.jpg);
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+.header-text {
+  margin-left: 10%;
+  padding-top: 35vh;
+  color: white;
+}
+
+.header-text h1 {
+  font-size: 80px;
+  line-height: 80px;
+}
+
+/* CHECKBOK */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -6px;
+  background-color: red;
+  /* right: 24px; */
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #57d131;
+  position: relative;
+  border-radius: 3px;
+  transition: 1s;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+  /* transition: 1s; */
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+  /* transition: 1s; */
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: #57d131;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: #57d131;
+  transform: rotate(-45deg) translate(-1px, 1.5px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* CONTAINER_2 */
+.container-2 {
+  width: 100%;
+  height: 100vh;
+  background-color: #dbdddd;
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #474747;
+  user-select: red;
+}
+
+.profil {
+  display: flex;
+  flex: 1;
+}
+
+.fot-1 {
+  font-size: 13px;
+  color: rgb(228, 228, 228);
+  padding: 60px;
+}
+
+.fot-2 {
+  flex: 0.7;
+  padding: 50px;
+  color: #f3efef;
+}
+
+.kontak {
+  margin-top: 20px;
+}
+
+.kontak svg {
+  margin-right: 10px;
+}
+
+.image {
+  margin-top: 30px;
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.image svg {
+  height: 20px;
+}
+
+@media screen and (max-width: 430px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    padding: 70px 30px;
+    gap: 40px;
+    justify-content: start;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    z-index: -1;
+    transform: translateX(123%);
+    transition: all 0.7s;
+    /* opacity: 1; */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav img {
+    position: relative;
+    left: -55px;
+  }
+
+  .header-text h1 {
+    font-size: 55px;
+  }
+
+  nav ul.slide {
+    opacity: 1;
+    transform: translateX(22%);
+  }
+
+  .fot-2 {
+    padding-top: 0;
+  }
+}
+
+footer.copy {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  justify-content: center;
+  color: #f3efef;
+  background-color: #000000;
+}
+
+.fot-1-2 {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  /* background-color: #0077b3; */
+}

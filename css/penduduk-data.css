@@ -1,0 +1,300 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #dbdddd;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  justify-content: space-around;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+nav ul {
+  margin-left: 20px;
+  display: flex;
+  list-style: none;
+  flex: 0.9;
+  margin-right: 50px;
+  justify-content: end;
+  gap: 50px;
+}
+
+nav ul li {
+  display: flex;
+  position: relative;
+  padding: 0 2px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button.out {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 20px;
+  outline: none;
+  border-radius: 3px;
+  border: none;
+  color: #dbdddd;
+  background-color: #57d131;
+  cursor: pointer;
+}
+
+button.out:hover {
+  transform: translate(-0.05em, -0.05em);
+}
+
+button.out:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em green;
+}
+
+nav ul a:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 4px;
+  width: 0;
+  left: 0;
+  border-radius: 1px;
+  background-color: #57d131;
+  transition: 0.4s;
+}
+
+nav ul a:hover:after {
+  width: 100%;
+}
+
+/* CHECKBOK */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -6px;
+  background-color: red;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #57d131;
+  position: relative;
+  border-radius: 3px;
+  transition: 1s;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: #57d131;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: #57d131;
+  transform: rotate(-45deg) translate(-1px, 1.5px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------------- */
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+input {
+  min-width: 400px;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  position: relative;
+  background-color: #f4f2f2;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top: 2px solid #c1fba4;
+  border-left: 2px solid #c1fba4;
+  border-bottom: 2px solid #c1fba4;
+  border-right: none;
+}
+
+.search-icon {
+  display: flex;
+  align-content: center;
+  height: 1.3em;
+  width: 1.3em;
+  fill: #ffffff;
+}
+
+.search-button {
+  background-color: #57d131;
+  padding: 12.5px 15px;
+  border: 2px 2px 2px 0;
+  border-radius: 0px 30px 30px 0;
+  border-top: 2px solid #c1fba4;
+  border-right: 2px solid #c1fba4;
+  border-bottom: 2px solid #c1fba4;
+  border-left: none;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------- */
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  margin-top: 150px;
+}
+
+table {
+  margin: 1em 0;
+  width: 90%;
+  background-color: #f4f2f2;
+  border-collapse: collapse;
+  padding: 5px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.data-penduduk tr th:nth-child(1),
+.data-penduduk tr td:nth-child(1) {
+  border-right: 1px solid #dbdddd;
+}
+.data-penduduk tr {
+  border-top: 1px solid #dbdddd;
+  border-bottom: 1px solid #dbdddd;
+  border-color: #dbdddd;
+}
+
+.data-penduduk td::before {
+  display: none;
+}
+
+.data-penduduk th,
+.data-penduduk td {
+  display: table-cell;
+  padding: 0.25em 0.5em;
+  padding: 10px !important;
+}
+
+.data-penduduk th:last-child,
+.data-penduduk td:last-child {
+  padding-right: 0;
+}
+
+@media screen and (max-width: 430px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100vh;
+    padding: 70px 30px;
+    gap: 40px;
+    justify-content: start;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    z-index: -1;
+    transform: translateX(123%);
+    transition: all 0.7s;
+    /* opacity: 1; */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav img {
+    position: relative;
+    left: -55px;
+  }
+
+  nav ul.slide {
+    opacity: 1;
+    transform: translateX(22%);
+  }
+
+  input {
+    min-width: 300px;
+  }
+
+  /* respon tabel*/
+
+  table {
+    width: 93%;
+  }
+  .data-penduduk th {
+    display: none;
+  }
+
+  .data-penduduk td {
+    /* padding: 5px; */
+    display: block;
+  }
+
+  .data-penduduk td:first-child {
+    padding-top: 10px;
+  }
+
+  .data-penduduk td:last-child {
+    border-bottom: 7px solid #dbdddd;
+  }
+
+  .data-penduduk td::before {
+    content: attr(data-th) " : ";
+    font-weight: bold;
+    width: 75px;
+    display: inline-block;
+  }
+}
